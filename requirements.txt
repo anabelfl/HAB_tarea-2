@@ -1,0 +1,6 @@
+pandas
+networkx
+numpy
+argparse
+os
+mygene
