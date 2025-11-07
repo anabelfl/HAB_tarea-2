@@ -1,5 +1,9 @@
 
-# Tarea 2: Network Propagation
+# Propagación de redes
+
+##### Anabel Yu Flores Moral
+
+---
 
 La **propagación en redes** es una técnica computacional versátil, ampliamente utilizada en ciencias biológicas para analizar estructuras de redes. Su idea fundamental consiste en difundir "señales" a través de una red, donde los nodos representan elementos como genes o proteínas, y las aristas sus interacciones o correlaciones. Este proceso amplifica señales débiles partiendo de un subconjunto inicial de nodos conocidos, revelando patrones y relaciones no evidentes en interacciones directas.
 
@@ -26,8 +30,9 @@ GUILD (***Genes Underlying Inheritance Disorders***) es un paquete de software b
 El script de propagación (`propagacion_red.py`) no incluye una etapa de conversión de identificadores a HUGO por diseño. El script se enfoca exclusivamente en la fase de análisis algorítmico, asumiendo como prerrequisito que los datos de entrada ya han sido pre-procesados y estandarizados. Esta premisa se cumple, ya que tanto los archivos de red proporcionados (`string_network_filtered_hugo-400.tsv`) como el archivo de semillas (`genes_seed.txt`) utilizan consistentemente la nomenclatura de símbolos HUGO. De esta forma se separan las etapas de pre-procesamiento de datos y análisis en cuestión, con el fin de generar eficiencia en el código.
 
 Para ejecutar el script se escribe por la terminal lo siguiente:
+
 ```
-python scripts/propagacion_red.py --network data/network_guild.txt --seeds data/genes_seed.txt --output results/propagation_scores_guild.tsv
+python scripts/propagacion_red.py --network data/string_network_filtered_hugo-400.tsv --seeds data/genes_seed.txt --output results/propagation_scores_guild.tsv
 
 ````
 
@@ -40,11 +45,6 @@ python scripts/propagacion_red.py --network data/network_guild.txt --seeds data/
 3. **Reinicio**: En cada paso, también hay una probabilidad de que la puntuación "salte" de vuelta a los nodos semilla originales. Esto asegura que los genes más cercanos a las semillas reciban una mayor puntuación.
 4. **Convergencia**: El proceso se repite hasta que las puntuaciones de todos los genes en la red se estabilizan.
 
-## Resultado
-
-El resultado final será una **lista de todos los genes de la , clasificados por su puntuación final**, que valora la proximidad funcional a las semillas. Los genes con las puntuaciones más altas (después de las semillas) son los candidatos más prometedores para estar funcionalmente relacionados con el proceso biológico de los genes semilla.
-
-
 ### Características de la implementación
 
 1. Será ejecutable desde la línea de comandos (CLI).
@@ -52,6 +52,14 @@ El resultado final será una **lista de todos los genes de la , clasificados por
 3. Cargará la red y las semillas usando las librerías pandas y networkx.
 4. Implementará el algoritmo RWR.
 5. Guardará los resultados en un archivo de texto, ordenados por puntuación.
+
+---
+
+## Resultado
+
+El resultado final será una **lista de todos los genes clasificados por su puntuación final**, que valora la proximidad funcional a las semillas. Los genes con las puntuaciones más altas (después de las semillas) son los candidatos más prometedores para estar funcionalmente relacionados con el proceso biológico de los genes semilla.
+
+---
 
 ## Estructura del repositorio
 
@@ -70,10 +78,10 @@ El resultado final será una **lista de todos los genes de la , clasificados por
 └── requirements.txt                             # Dependencias: networkx, pandas
 
 ```
-
+---
 ## Dependencias recomendadas
 
-Incluye en `requirements.txt` las librerías necesarias para ejecutar tu script. Por ejemplo:
+Librerías necesarias para ejecutar el script se incluyen en `requirements.txt`:
 
 ```
 pandas
@@ -81,6 +89,5 @@ networkx
 numpy
 argparse
 os
-mygene
 ```
-
+---
