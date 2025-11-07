@@ -59,6 +59,8 @@ python scripts/propagacion_red.py --network data/string_network_filtered_hugo-40
 
 El resultado final será una **lista de todos los genes clasificados por su puntuación final**, que valora la proximidad funcional a las semillas. Los genes con las puntuaciones más altas (después de las semillas) son los candidatos más prometedores para estar funcionalmente relacionados con el proceso biológico de los genes semilla.
 
+El archivo resultante es: `hugo_propagation_scores.tsv`
+
 ---
 
 ## Estructura del repositorio
@@ -71,6 +73,8 @@ El resultado final será una **lista de todos los genes clasificados por su punt
 │   ├── network\_diamond.txt                      # Red formateada para DIAMOnD
 │   ├── string\_network\_filtered\_hugo-400.tsv     # Red filtrada de STRING
 │   └── genes\_seed.txt                           # Genes semilla: ENO1, PGK1, HK2
+├── resultd/
+│   └── hugo_propagation_scores.tsv
 ├── scripts/
 │   ├── process\_STRING.py                        # Script de ejemplo para procesar la red
 │   └── propagacion_red.py                        # Script creado
