@@ -25,6 +25,12 @@ GUILD (***Genes Underlying Inheritance Disorders***) es un paquete de software b
 
 El script de propagación (`propagacion_red.py`) no incluye una etapa de conversión de identificadores a HUGO por diseño. El script se enfoca exclusivamente en la fase de análisis algorítmico, asumiendo como prerrequisito que los datos de entrada ya han sido pre-procesados y estandarizados. Esta premisa se cumple, ya que tanto los archivos de red proporcionados (`string_network_filtered_hugo-400.tsv`) como el archivo de semillas (`genes_seed.txt`) utilizan consistentemente la nomenclatura de símbolos HUGO. De esta forma se separan las etapas de pre-procesamiento de datos y análisis en cuestión, con el fin de generar eficiencia en el código.
 
+Para ejecutar el script se escribe por la terminal lo siguiente:
+```
+python scripts/propagacion_red.py --network data/network_guild.txt --seeds data/genes_seed.txt --output results/propagation_scores_guild.tsv
+
+````
+
 ### Algoritmo RWR: `run_rwr`
 
 ***Random Walk with Restart*** es un algoritmo matemático de propagación en redes que simula un caminante aleatorio en un grafo, donde los nodos representan entidades como genes o proteínas y las aristas sus interacciones. Se basa en calcular la "proximidad" de nodos en cualquier grafo y tiene como exclusividad que incluye un **mecanismo de reinicio** que equilibra influencias locales y globales.
